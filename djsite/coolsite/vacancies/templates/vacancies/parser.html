@@ -1,0 +1,12 @@
+<!-- main.html -->
+{% extends 'vacancies/base.html' %}
+
+{% block vumogu %}
+<h1>{{posada}}</h1>
+    {% for movie in movies %}
+        <p>{{ movie.name }}</p>
+
+        <br>
+    {% endfor %}
+
+{% endblock %}

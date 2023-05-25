@@ -1,0 +1,44 @@
+{% extends 'vacancies/base.html' %}
+{% block vumogu %}
+<ul class="list-articles">
+
+		<form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="get">
+	<input class="form-control mr-sm-2" type="search" placeholder="Пошук за містом" aria-label="Пошук", name="search">
+
+	<button class="btn btn-online-succes my -2 my -sm -0" type="submit">Пошук</button>
+</form>
+	<p> </p>
+	<form class="form-inline my-2 my-lg-0" action="{% url 'sear' %}" method="get">
+		Від
+		<input class="form-control mr-sm-2" type="sear" placeholder="Пошук за заробітною платою" aria-label="Пошук", name="sear">
+
+		до
+		<input class="form-control mr-sm-2" type="s" placeholder="Пошук за заробітною платою" aria-label="Пошук", name="s">
+
+		<button class="btn btn-online-succes my -2 my -sm -0" type="submit">Пошук</button>
+
+	</form>
+	<p> </p>
+	{% for p in posts %}
+	<li><div class="article-panel">
+
+		<p class="first">Професія: {{p.pr}}</p>
+		<p class="last">Дата: {{p.time_create|date:"d.m.Y"}}</p>
+	</div>
+			<h2>{{p.posada}}</h2>
+	{% autoescape on %}
+
+		<p> Фірма: {{p.firma}} </p>
+		<p>	Місто: {{p.city}} </p>
+		<p> Вулиця:	{{p.street}} </p>
+		<p> Заробітна плата: {{p.salary}} грн </p>
+		<p>	{{p.vumogu}} </p>
+		<p>	{{p.responsibilities}} </p>
+		<p> {{p.vacancies}}</p>
+        <p>Кількість претендентів: {{ p.kilkbez_count }}</p>
+	{% endautoescape %}
+			<div class="clear"></div>
+			</li>
+	{% endfor %}
+</ul>
+{% endblock %}

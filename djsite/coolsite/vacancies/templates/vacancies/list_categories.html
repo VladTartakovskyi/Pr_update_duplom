@@ -1,0 +1,10 @@
+	{% for pr in cats %}
+		{% if pr.pk == cat_selected %}
+		<li class="selected">{{pr.name}}</li>
+		{% else %}
+
+		<li><a href="{{ pr.get_absolute_url }}">{{pr.name}}</a> </li>
+
+		{% endif %}
+
+		{% endfor %}

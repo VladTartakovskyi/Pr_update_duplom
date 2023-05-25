@@ -1,0 +1,41 @@
+{% extends 'vacancies/base_cur.html' %}
+{% block vumogu %}
+<ul class="list-articles">
+
+<form class="form-inline my-2 my-lg-0" action="{% url 'sr' %}" method="get">
+
+		<input class="form-control mr-sm-2" type="sr" placeholder="Пошук за містом" aria-label="Пошук", name="sr">
+
+
+
+
+		<button class="btn btn-online-succes my -2 my -sm -0" type="submit">Пошук</button>
+
+	</form>
+    <p></p>
+	{% for p in posts %}
+	<li><div class="article-panel">
+
+		<p class="first">Курс: {{p.pr}}</p>
+		<p class="last">Дата: {{p.time_create|date:"d.m.Y"}}</p>
+	</div>
+			<h2>{{p.name}}</h2>
+	{% autoescape on %}
+
+
+		<p>	ПІП: {{p.pip_v}} </p>
+		<p> Тривалість:	{{p.truvalist}} міс </p>
+		<p> Місто: {{p.city}}  </p>
+        <p> Адреса: {{p.adress}} </p>
+
+		{% if p.vartist %}
+		<p> Вартість: {{p.vartist}} грн </p>
+		{% endif %}
+		<p> Номер телефону: {{p.nomer_phone}} </p>
+
+	{% endautoescape %}
+			<div class="clear"></div>
+			</li>
+	{% endfor %}
+</ul>
+{% endblock %}

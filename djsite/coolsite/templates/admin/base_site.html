@@ -1,0 +1,9 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Адмін панель') }}{% endblock %}
+{% block branding %}
+<h1>Вхід в адмін панель</h1>
+{% endblock %}
+
+
+{% block nav-global %}{% endblock %}
